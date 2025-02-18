@@ -4,11 +4,13 @@ import Article from './pages/Article'
 import Intro from './pages/Intro'
 import Life from './pages/Life'
 import List from './pages/List'
+import NavBar from './pages/NavBar'
 
 function App() {
 
   return (
     <>
+    <NavBar />
       <Routes>
         <Route path="/article" element={ <Article /> }/>
         <Route path="/intro" element={ <Intro /> }/>
