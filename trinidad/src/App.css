@@ -13,8 +13,46 @@ li{
   border: 1px solid black;
   width: 220px;
   height: 100vh;
+  float: left;
 }
 .navbaritem{
   margin-top: 70%;
   padding: 1%;
+}
+.page{
+ float: right;
+}
+.listpage{
+border: 1px solid rebeccapurple;
+width: 100vh;
+background-color: #3a3d57;
+}
+.openedsheet{
+   padding: "10px";
+  background: white 
+}
+.openedsheetleft{
+  padding: "10px";
+ background: white;
+ float: left;
+}
+.openedsheetleft img{
+  width: 250px;
+  height: 200px;
+}
+.openedsheetright{
+  padding: "10px";
+ background: white;
+ float: right;
+}
+table{
+  border: 1px solid black;
+  
+}
+th, td{
+  min-width: 130px;
+
+}
+.tropen{
+  cursor: pointer;
 }

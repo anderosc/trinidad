@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-    <NavBar />
+       <NavBar />
       <Routes>
         <Route path="/article" element={ <Article /> }/>
         <Route path="/intro" element={ <Intro /> }/>
