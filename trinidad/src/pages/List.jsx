@@ -1,22 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import peopleData from "./people.json";
 
 function List() {
   const originalPeople = peopleData.list;
-  const [people, setPeople] = useState(peopleData.list);
+  const [people, setPeople] = useState([]);
   const [openPage, setOpenPage] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState(0); 
+  const [pages, setPages] = useState([])
   
 
-  // useEffect(() => {
-  //   // fetch("https://proovitoo.twn.ee/api/list")
-  //   //   .then(res => res.json())
-  //   //   .then(json => {
-  //   //     console.log(json); 
-  //   //     setPeople(json);
-  //   //   })
-  // }, []);
+  useEffect(() => {
+    fetch("https://proovitoo.twn.ee/api/list")
+      .then(res => res.json())
+      .then(json => {
+        console.log(json); 
+        setPeople(json.list);
+
+        const totalPages = Math.ceil(json.list.length / 10);
+        const allPages = [];
+  
+        for (let i = 1; i <= totalPages; i++) {
+          allPages.push(i);
+        }
+        setPages(allPages)
+      })
+
+     
+  }, []);
 
   const personalCodeToBirthDate = (id) => {
     id = id.toString();
@@ -35,11 +46,8 @@ function List() {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const totalPages = Math.ceil(people.length / 10);
-  const pages = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pages.push(i);
-  }
+ 
+
 
   const sortPeopleByName = () => {
     if (sortOrder === 0) {
